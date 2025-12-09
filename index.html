@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/form.css">
+    <title>MacchongApp</title>
+</head>
+<body>
+    <h1>マッチョングアプリ</h1>
+
+    <!-- データ出力場所 -->
+     <fieldset>
+        <legend>トレーナー</legend>
+        <div>
+            <div></div>
+            <ul id="output"></ul>
+        </div>
+        
+     </fieldset>
+
+    <!-- データ入力場所 -->
+    <form>
+        <fieldset>
+            <legend>トレーナー登録フォーム</legend>
+            <div>
+                氏名: <input type="text" id="name">
+            </div>
+            <div>
+                価格: <input type="text" id="plan">
+            </div>
+            <div>
+                プロフィール: <input type="text" id="profile">
+            </div>
+            <div>
+                資格・経歴: <input type="text" id="qualification">
+            </div>
+            <div>
+                活動エリア: <input type="text" id="area">
+            </div>
+            <!-- 画像アップロード -->
+            <div>
+                <!-- 画像ファイル選択用のinput要素（非表示） -->
+                <input type="file" id="imageInput" accept="image/*" style="display: none;">
+                <!-- ユーザーに表示するボタン -->
+                 <button id="uploadButton">画像を選択</button>
+                <!-- 選択した画像を表示するimgタグ -->
+                 <img src="#" alt="選択された画像" id="previewImage" style="max-width: 200px; margin-top: 10px;">
+            </div>
+            <div>
+                <button type="button" id="send">登録</button>
+            </div>
+        </fieldset>
+    </form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="module" src="./js/form.js"></script>
+</body>
+</html>
