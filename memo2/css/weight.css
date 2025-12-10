@@ -1,0 +1,78 @@
+/* レスポンシブデザイン */
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #FFD5EC;
+    height: 100%;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    color: #9999FF;
+
+}
+
+
+#form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+    align-items: center;
+}
+
+#form2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+    align-items: center;
+}
+
+#bmi {
+    text-align: center;
+    margin-top: 60px;
+}
+
+#send {
+    display: flex;
+    justify-content: center;
+    gap: 10%;
+    padding: 50px 0px;
+}
+
+#save, #clear {
+    list-style: none;
+}
+
+#save:hover, #clear:hover {
+    text-decoration: underline;
+    color: #555555
+}
+
+#mychart {
+    margin-bottom: 60px;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+#footer_ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    background-color: #9999FF;
+    margin-top: 30px;
+    padding: 20px;
+    margin-bottom: 0;
+}

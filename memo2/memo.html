@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/memo.css">
+    <title>Fithub</title>
+
+</head>
+<body>
+    <header id="header">
+        <!-- <h1 id="title">FitHub</h1> -->
+        <img src="./image/スクリーンショット 2025-12-03 20.25.07.png" alt="">
+    </header>
+    <main>
+        <section id="form">
+            <div id="ymd">
+                <select name="date" id="year"></select>
+                <select name="date" id="month"></select>
+                <select name="date" id="day"></select>
+            </div>
+
+            <div class="textarea">
+                <div class="SBD">
+                    <div class="sbd">
+                        <select name="menu" class="menu">
+                            <option value="" disabled selected>選択してください</option>
+                            <option value="sq">スクワット</option>
+                            <option value="bp">ベンチプレス</option>
+                            <option value="dl">デッドリフト</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="maintext">
+                    <div class="weight-wrap">
+                        <textarea class="weight"></textarea>
+                        <p class="kg">kg</p>
+                    </div>
+                    <div class="rep-wrap">
+                        <textarea class="rep"></textarea>
+                        <p class="count">回</p>
+                    </div>
+                    <div class="RM">
+                        <p class="RM1">RM換算値</p>
+                        <p class="max">RM<span class="maxcal"> ??? </span>kg</p>
+                    </div>
+                </div>
+
+                <div class="setbutton">
+                    <button class="addset">＋</button>
+                </div>
+            </div>
+            <div class="formbutton">
+                <button class="addform">＋</button>
+            </div>
+        </section>
+
+        <ul class="save">
+            <li id="save">save</li>
+            <li id="clear">clear</li>
+        </ul>
+    </main>
+
+    <footer id="footer">
+        <div class="footer_nav">
+            <nav class="nav">
+                <ul id="footer_ul">
+                    <li><a href="./memo.html">Fit hub</a></li>
+                    <li><a href="./body_weight.html">Weight mg</a></li>
+                    <li><a href="Mynutrition">My nutrition</a></li>
+                    <li><a href="../index.html">Macchong</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./js/memo.js"></script>
+</body>
+</html>
