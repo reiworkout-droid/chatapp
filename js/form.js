@@ -1,4 +1,14 @@
-         // 日時をいい感じの形式にする関数
+    // 登録フォームへ移動
+    $('#toForm').on('click',function(){
+        window.location.href = "form.html";//フォームに移動
+    });
+
+    // ホームへ戻る
+    $('#toHome').on('click',function(){
+        window.location.href = "index.html";//ホームに移動
+    });
+
+    // 日時をいい感じの形式にする関数
     function convertTimestampToDatetime(timestamp) {
     const _d = timestamp ? new Date(timestamp * 1000) : new Date();
     const Y = _d.getFullYear();
@@ -87,7 +97,7 @@
 
         <div class="post">
             <img src="${document.data.imageUrl}" class="icon">
-            <li id="${document.id}">
+            <li id="${document.id}" class="postList">
                 <p>氏　名：${document.data.name}</p> 
                 <p>価　格：${document.data.plan}</p>
                 <p>活動エリア：${document.data.area}</p>

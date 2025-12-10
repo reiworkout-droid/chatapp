@@ -1,3 +1,166 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #fffafa;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    font-weight: bold;
+    color: #FF9933;
+}
+
+.button {
+    display: flex;
+    justify-content: right;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    margin-right: 30px;
+}
+
+#list {
+    border: 10px groove #FF9933;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+fieldset {
+    border: 4px solid #555555;
+    margin-bottom: 120px;
+}
+
+@media (min-width: 601px){
+    .subtext {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 600px){
+    .subtext {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 12px;
+    }
+}
+
+
+
+.post {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+
+}
+
+@media (max-width: 600px){
+    .icon {
+        margin-top: 30px;
+        margin-right: 30px;
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (min-width: 601px){
+    .icon {
+        margin-top: 50px;
+        margin-right: 50px;
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 600px){
+    #output {
+        list-style: none;
+        font-size: 10px;
+    }
+}
+
+@media (min-width: 601px){
+    #output {
+        list-style: none;
+    }
+}
+
+.postList:hover {
+    background-color: #dcdcdc;
+}
+
+@media (max-width: 600px){
+    .postList {
+        background-color: #F5F5F5;
+        margin-bottom: 10px;
+        padding-right: 80px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 5px;
+    }
+}
+
+@media (min-width: 601px){
+    .postList {
+        background-color: #F5F5F5;
+        margin-bottom: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 50px;
+        padding-right: 30px;
+        text-align: left;
+    }
+}
+
+#registration {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 30px;
+}
+
+@media (max-width: 600px){
+    #registration {
+        background-color: #F5F5F5;
+        padding: 10px;
+    }
+}
+
+@media (min-width: 601px){
+    #registration {
+        background-color: #F5F5F5;
+        padding-left: 50px;
+        padding: 30px;
+    }
+}
+
+@media (max-width: 600px){
+    #name,
+    #plan,
+    #profile,
+    #qualification,
+    #area {
+        width: 200px;
+        height: 20px;
+    }
+}
+
+@media (min-width: 601px){
+    #name,
+    #plan,
+    #profile,
+    #qualification,
+    #area {
+        margin-left: 30px;
+        width: 400px;
+        height: 30px;
+    }
+}
+
 #uploadButton {
     padding: 10px 20px;
     background-color: #007bff;
@@ -12,19 +175,52 @@
     background-color: #0056b3;
 }
 
-.post {
-    display: flex;
-    justify-content: start;
-    align-items: start;
+#send {
+    background-color: #ffd700;
+    border: 2px solid firebrick;
+    border-radius: 10px;
+    padding: 5px 15px;
+    cursor: pointer;
 }
 
-.icon {
-    margin-top: 50px;
-    margin-right: 50px;
-    width: 150px;
-    height: 150px;
-}
-#output {
+#send:hover {
+    background-color: #ffe4b5;
     
-    list-style: none;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+@media(min-width:601px){
+    #footer_ul {
+        display: flex;
+        justify-content: center;
+        gap: 10%;
+        list-style: none;
+        background-color: #FFEBCD	;
+        margin-top: 30px;
+        margin-bottom: 0;
+        padding: 30px;
+    }
+}
+
+@media(max-width:600px){
+    #footer_ul {
+        display: flex;
+        justify-content: center;
+        font-size: 12px;
+        gap: 10%;
+        list-style: none;
+        background-color: #FFEBCD	;
+        margin-top: 30px;
+        padding: 20px;
+        margin-bottom: 0;
+    }
+}
+
+.footerList {
+    background-color: transparent;
 }

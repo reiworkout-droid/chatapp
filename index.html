@@ -7,51 +7,36 @@
     <title>MacchongApp</title>
 </head>
 <body>
-    <h1>マッチョングアプリ</h1>
+        <h1>マッチョングアプリ</h1>
 
+        <div class="button">
+            <button id="toForm">登録フォーム</button>
+        </div>
+
+        <p class="subtext">場所・価格・目的から自分に合ったパーソナルトレーナーを探す</p>
     <!-- データ出力場所 -->
      <fieldset>
-        <legend>トレーナー</legend>
+        <legend id="list">Trainer list</legend>
         <div>
-            <div></div>
             <ul id="output"></ul>
         </div>
         
      </fieldset>
 
-    <!-- データ入力場所 -->
-    <form>
-        <fieldset>
-            <legend>トレーナー登録フォーム</legend>
-            <div>
-                氏名: <input type="text" id="name">
-            </div>
-            <div>
-                価格: <input type="text" id="plan">
-            </div>
-            <div>
-                プロフィール: <input type="text" id="profile">
-            </div>
-            <div>
-                資格・経歴: <input type="text" id="qualification">
-            </div>
-            <div>
-                活動エリア: <input type="text" id="area">
-            </div>
-            <!-- 画像アップロード -->
-            <div>
-                <!-- 画像ファイル選択用のinput要素（非表示） -->
-                <input type="file" id="imageInput" accept="image/*" style="display: none;">
-                <!-- ユーザーに表示するボタン -->
-                 <button id="uploadButton">画像を選択</button>
-                <!-- 選択した画像を表示するimgタグ -->
-                 <img src="#" alt="選択された画像" id="previewImage" style="max-width: 200px; margin-top: 10px;">
-            </div>
-            <div>
-                <button type="button" id="send">登録</button>
-            </div>
-        </fieldset>
-    </form>
+<footer>
+    <div class="footer_nav">
+        <nav class="nav">
+            <ul id="footer_ul">
+                <li class="footerList"><a href="./memo/memo.html">Memo</a></li>
+                <li class="footerList"><a href="./memo/body_weight.html">Weight</a></li>
+                <li class="footerList"><a href="Mynutrition">Nutrition</a></li>
+                <li class="footerList"><a href="./index.html">Macchong</a></li>
+            </ul>
+        </nav>
+    </div>
+</footer>
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="module" src="./js/form.js"></script>
 </body>
