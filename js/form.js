@@ -33,6 +33,9 @@
     onSnapshot,
     query,
     orderBy,
+    deleteDoc,
+    doc,
+    getDoc,
     } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
     // Your web app's Firebase configuration
@@ -103,6 +106,7 @@
                 <p>経歴・資格：${document.data.qualification}</p>
                 <p>プロフィール：${document.data.profile}</p>
                 <p>登録日時：${convertTimestampToDatetime(document.data.time.seconds)}</p>
+                <button class="deleteButton" data-id="${document.id}">削除</button>
             </li>
         </div>
         `);
@@ -177,3 +181,17 @@
         const elements = chatElements(documents);
         $('#output').html(elements);//タグを出力する
     });   
+
+    // 削除処理
+    $(document).on('click', '.deleteButton', async function() {
+        const id = $(this).data('id'); // クリックされたボタンのドキュメントIDを取得
+        if (!confirm('本当に削除しますか？')) return;
+
+        try {
+            await deleteDoc(doc(db, 'form', id));
+            alert('削除しました');
+        } catch (err) {
+            console.error(err);
+            alert('削除に失敗しました');
+        }
+    });
