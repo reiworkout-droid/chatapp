@@ -62,8 +62,8 @@ fieldset {
     .icon {
         margin-top: 30px;
         margin-right: 30px;
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 90px;
     }
 }
 
@@ -96,8 +96,8 @@ fieldset {
 @media (max-width: 600px){
     .postList {
         background-color: #F5F5F5;
+        width: 100%;
         margin-bottom: 10px;
-        padding-right: 80px;
         padding-top: 5px;
         padding-bottom: 5px;
         padding-left: 5px;
@@ -107,6 +107,7 @@ fieldset {
 @media (min-width: 601px){
     .postList {
         background-color: #F5F5F5;
+        width: 100%;
         margin-bottom: 10px;
         padding-top: 10px;
         padding-bottom: 10px;
