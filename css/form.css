@@ -126,7 +126,10 @@ fieldset {
 @media (max-width: 600px){
     #registration {
         background-color: #F5F5F5;
-        padding: 10px;
+        padding-left: 50px;
+        padding-top: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
     }
 }
 
@@ -144,7 +147,7 @@ fieldset {
     #profile,
     #qualification,
     #area {
-        width: 200px;
+        width: 80%;
         height: 20px;
     }
 }
@@ -156,19 +159,24 @@ fieldset {
     #qualification,
     #area {
         margin-left: 30px;
-        width: 400px;
+        width: 80%;
         height: 30px;
+    }
+}
+@media (min-width: 601px){
+    .question {
+        margin-left: 30px;
     }
 }
 
 #uploadButton {
-    padding: 10px 20px;
+    padding: 8px 16px;
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 13px;
 }
 
 #uploadButton:hover {
@@ -179,8 +187,9 @@ fieldset {
     background-color: #ffd700;
     border: 2px solid firebrick;
     border-radius: 10px;
-    padding: 5px 15px;
+    padding: 8px 24px;
     cursor: pointer;
+    font-size: 20px;
 }
 
 #send:hover {
@@ -223,4 +232,12 @@ footer {
 
 .footerList {
     background-color: transparent;
+}
+
+.deleteButton {
+    background-color: #ffd700;
+    border: 2px solid firebrick;
+    border-radius: 5px;
+    width: 60px;
+    height: 30px;
 }
