@@ -37,7 +37,6 @@
 
     // Your web app's Firebase configuration
     const firebaseConfig = {
-        apiKey: "AIzaSyB5PyX3n4JN03pyXZXkm1eInZ4aRVebVXg",
         authDomain: "macchong1207.firebaseapp.com",
         projectId: "macchong1207",
         storageBucket: "macchong1207.firebasestorage.app",
