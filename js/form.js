@@ -99,15 +99,21 @@
 
         <div class="post">
             <img src="${document.data.imageUrl}" class="icon">
-            <li id="${document.id}" class="postList">
-                <p>氏　名：${document.data.name}</p> 
-                <p>価　格：${document.data.plan}</p>
-                <p>活動エリア：${document.data.area}</p>
-                <p>経歴・資格：${document.data.qualification}</p>
-                <p>プロフィール：${document.data.profile}</p>
-                <p>登録日時：${convertTimestampToDatetime(document.data.time.seconds)}</p>
-                <button class="deleteButton" data-id="${document.id}">削除</button>
-            </li>
+            <div class="selectList">
+                <li id="${document.id}" class="postList">
+                    <p>氏　名：${document.data.name}</p> 
+                    <p>価　格：${document.data.plan}</p>
+                    <p>活動エリア：${document.data.area}</p>
+                    <p>経歴・資格：${document.data.qualification}</p>
+                    <p>プロフィール：${document.data.profile}</p>
+                    <p>登録日時：${convertTimestampToDatetime(document.data.time.seconds)}</p>
+                    <button class="deleteButton" data-id="${document.id}">削除</button>
+                </li>
+                <button type="button" class="likeButton" data-like-id="${document.id}">
+                <svg class="likeButton__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M91.6 13A28.7 28.7 0 0 0 51 13l-1 1-1-1A28.7 28.7 0 0 0 8.4 53.8l1 1L50 95.3l40.5-40.6 1-1a28.6 28.6 0 0 0 0-40.6z"/></svg>
+                いいね
+                </button>
+            </div>
         </div>
         `);
     });
@@ -142,6 +148,7 @@
                 contentType: false,//データ形式を自動で変更不可                
             });
             imageUrl = result.secure_url;
+            alert('登録が完了しました');
         } catch (err) { //例外が発生した場合の書ろい
             console.error(err); //errorをコンソールに表示
             alert("Cloudinary アップロードに失敗しました");
@@ -177,10 +184,44 @@
         // 謎のデータを綺麗なデータに変換する
         const documents = chatDocuments(querySnapshot.docs);//綺麗に整理する
         console.log(documents);
+
         // 綺麗なデータをタグに入れる
         const elements = chatElements(documents);
         $('#output').html(elements);//タグを出力する
-    });   
+  
+
+        $('.likeButton').each(function(){
+
+            const id = $(this).data('like-id');
+            // localStorage から状態を取得
+            const saved = localStorage.getItem('like_' + id);
+            // 以前いいねされていたら復元
+            if (saved === '1') {
+                $(this).addClass('liked');
+            }
+        });
+    }); 
+
+        // Likeボタンクリックでアクション
+        $(document).on('click', '.likeButton', function(){
+            // このボタンの識別IDを取得
+            const btnId = $(this).data('like-id');
+
+            // liked クラスを付けたり外したりする（トグル）
+            $(this).toggleClass('liked');
+
+            // liked クラスが付いているかチェック
+            if ($(this).hasClass('liked')) {
+
+                // 付いている → localStorage に保存
+                localStorage.setItem('like_' + btnId, '1');
+
+            } else {
+
+                // 外された → localStorage から削除
+                localStorage.removeItem('like_' + btnId);
+            }
+        });
 
     // 削除処理
     $(document).on('click', '.deleteButton', async function() {
@@ -189,9 +230,74 @@
 
         try {
             await deleteDoc(doc(db, 'form', id));
+            localStorage.removeItem('like_' + id); // ← 削除時に like も消す
             alert('削除しました');
         } catch (err) {
             console.error(err);
             alert('削除に失敗しました');
         }
+    });
+
+    // お気に入りだけ表示
+    $('#favoriteList').on('click', function () {
+
+        // 現在 Firestore から描画された likeButton の番号から
+        // 「いいね済みの番号一覧」を作る
+        const likedIds = [];
+
+        // localStorage に「like_◯◯（doc.id）」で保存されているものを全部集める
+        Object.keys(localStorage).forEach(key => {
+            if (key.startsWith('like_')) {
+                likedIds.push(key.replace('like_', ''));
+            }
+        });
+
+        // Firestore から取得した全データは「documents」に入ってるので、
+        // お気に入りだけを抽出して再描画する
+        const q = query(collection(db, 'form'), orderBy('time', 'desc'));
+        onSnapshot(q, (querySnapshot) => {
+
+            const allDocs = chatDocuments(querySnapshot.docs);
+
+            // お気に入り番号だけ抽出 doc.idがローカルストレージに存在するものだけを抽出
+            const favoriteDocs = allDocs.filter(doc =>
+                likedIds.includes(doc.id)
+            );
+
+            // HTMLへ描画
+            const elements = chatElements(favoriteDocs);
+            $('#output').html(elements);
+
+            // 描写後にlike状態を維持
+            $('.likeButton').each(function(){
+                const id = $(this).data('like-id');
+                const saved = localStorage.getItem('like_' + id);
+                if(saved === '1'){
+                    $(this).addClass('liked');
+                }
+            });
+
+        });
+
+    });
+
+    // 全件表示：お気に入りフィルター解除
+    $('#allList').on('click', function () {
+        const q = query(collection(db, 'form'), orderBy('time', 'desc'));
+
+        onSnapshot(q, (querySnapshot) => {
+            const documents = chatDocuments(querySnapshot.docs);
+            const elements = chatElements(documents);
+            $('#output').html(elements);
+
+            // like 状態を復元
+            $('.likeButton').each(function(i){
+                const id = $(this).data('like-id');
+
+                const saved = localStorage.getItem('like_' + id);
+                if (saved === '1') {
+                    $(this).addClass('liked');
+                }
+            });
+        });
     });
