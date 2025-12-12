@@ -120,7 +120,6 @@ fieldset {
 #registration {
     display: flex;
     flex-direction: column;
-    gap: 30px;
     margin: 30px;
 }
 
@@ -131,6 +130,8 @@ fieldset {
         padding-top: 10px;
         padding-right: 10px;
         padding-bottom: 10px;
+        gap: 10px;
+
     }
 }
 
@@ -139,6 +140,7 @@ fieldset {
         background-color: #F5F5F5;
         padding-left: 50px;
         padding: 30px;
+        gap: 20px;
     }
 }
 
@@ -172,6 +174,7 @@ fieldset {
 
 #uploadButton {
     padding: 8px 16px;
+    margin-top: 20px;
     background-color: #007bff;
     color: white;
     border: none;
@@ -191,6 +194,7 @@ fieldset {
     padding: 8px 24px;
     cursor: pointer;
     font-size: 20px;
+    margin-top: 30px;
 }
 
 #send:hover {
