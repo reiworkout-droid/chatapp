@@ -126,7 +126,7 @@ fieldset {
 @media (max-width: 600px){
     #registration {
         background-color: #F5F5F5;
-        padding-left: 50px;
+        padding-left: 30px;
         padding-top: 10px;
         padding-right: 10px;
         padding-bottom: 10px;
@@ -150,7 +150,7 @@ fieldset {
     #profile,
     #qualification,
     #area {
-        width: 80%;
+        width: 90%;
         height: 20px;
     }
 }
